@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+}
+
+#tax-calculator {
+  display: flex;
+  flex-direction: column;
+  height: calc(max-content + 25rem);
+  width: 25rem;
+  border: .15rem solid rgba(0, 0, 0, 0.2);
+  margin-inline: auto;
+  margin-top: 3rem;
+  padding: 4rem 2rem 2rem 2rem;
+}
+
+#tax-calculator label {
+  display: flex;
+  align-items: center;
+}
+
+.help-tooltip {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 0rem .30rem;
+  border-radius: 50%;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 0.6rem;
+  font-weight: bolder;
+}
+
+.tooltip {
+  font-weight: 500 !important;
+  font-size: 0.7rem !important;
+  max-width: 6.8rem !important;
+}
