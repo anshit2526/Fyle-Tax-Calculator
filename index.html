@@ -21,6 +21,8 @@ Things that are yet to be done:
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
         rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -28,28 +30,47 @@ Things that are yet to be done:
     <!-- Calculator Container -->
     <div id="tax-calculator" class="fw-bold">
 
+        <!-- Gross Annual Income section -->
         <label for="gross-annual-income" class="fw-bold">Enter gross annual income
             <button type="button" class="help-tooltip mx-2" data-bs-toggle="tooltip" data-bs-placement="right"
                 data-bs-title="Total earnings before deductions and taxes over one year.">
                 ?
             </button>
         </label>
-        <input id="gross-annual-income" class="form-control" type="text" placeholder="Enter gross annual income" />
+        <div class="d-flex align-items-center justify-content-between form-control input-container">
+            <input id="gross-annual-income" class="" type="text" placeholder="Enter gross annual income" />
+            <button id="input-warning-gross-income" type="button" class="warning-tooltip mx-2 visually-hidden"
+                data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Please enter numbers only">
+                !
+            </button>
+        </div>
 
+
+        <!-- Extra Income Section -->
         <label for="extra-income" class="fw-bold mt-2">Enter extra income
             <button type="button" class="help-tooltip mx-2" data-bs-toggle="tooltip" data-bs-placement="right"
                 data-bs-title="Additional earnings beyond regular income, typically from secondary sources or supplementary work.">
                 ?
             </button>
         </label>
-        <input id="extra-income" type="text" class="form-control" placeholder="Enter extra income from other sources" />
 
+        <div class="d-flex align-items-center justify-content-between form-control input-container">
+            <input id="extra-income" type="text" class="" placeholder="Enter extra income from other sources" />
+            <button id="input-warning-extra-income" type="button" class="warning-tooltip mx-2 visually-hidden"
+                data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Please enter numbers only">
+                !
+            </button>
+        </div>
+
+
+        <!-- Age Group Section -->
         <label for="age-group" class="fw-bold mt-2">Enter age group
             <button type="button" class="help-tooltip mx-2" data-bs-toggle="tooltip" data-bs-placement="right"
                 data-bs-title="Different age groups have different tax rates.">
                 ?
             </button>
         </label>
+
         <div class="input-group mb-3">
             <input id="age-group" type="text" class="form-control" aria-label="Text input with dropdown button"
                 data-bs-toggle="dropdown" placeholder="Enter your age group">
@@ -62,14 +83,22 @@ Things that are yet to be done:
             </ul>
         </div>
 
+
+        <!-- Total Applicable Deductions Section -->
         <label for="applicable-deductions" class="fw-bold">Enter total applicable deductions
             <button type="button" class="help-tooltip mx-2" data-bs-toggle="tooltip" data-bs-placement="right"
                 data-bs-title="Subtracted amounts from income for specific purposes, like taxes or retirement contributions.">
                 ?
             </button>
         </label>
-        <input id="applicable-deductions" class="form-control" type="text" placeholder="Enter gross annual income" />
 
+        <div class="d-flex align-items-center justify-content-between form-control input-container">
+            <input id="applicable-deductions" class="" type="text" placeholder="Enter gross annual income" />
+            <button id="input-warning-applicable-deductions" type="button" class="warning-tooltip mx-2 visually-hidden"
+                data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Please enter numbers only">
+                !
+            </button>
+        </div>
 
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-sm btn-primary mt-5" data-bs-toggle="modal"
@@ -99,7 +128,6 @@ Things that are yet to be done:
 
 </body>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
 

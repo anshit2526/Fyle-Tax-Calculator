@@ -25,6 +25,38 @@ $(age60).click(() => {
     ageGroup.value = `\u226560`;
 })
 
+$(grossAnnualIncome).on('input', () => {
+    let grossAnnualIncomeValue = document.getElementById("gross-annual-income").value;
+    if (/[^\d]/.test(grossAnnualIncomeValue)) {
+        document.getElementById("input-warning-gross-income").classList = 'warning-tooltip mx-2'
+        console.log('afdsfadsfafadsfas')
+    } else {
+        document.getElementById("input-warning-gross-income").classList = 'warning-tooltip mx-2 visually-hidden'
+        console.log('a')
+    }
+});
+
+$(extraIncome).on('input', () => {
+    let extraIncomeValue = document.getElementById("extra-income").value;
+    if (/[^\d]/.test(extraIncomeValue)) {
+        document.getElementById('input-warning-extra-income').classList = 'warning-tooltip mx-2'
+    } else {
+        document.getElementById('input-warning-extra-income').classList = 'warning-tooltip mx-2 visually-hidden'
+    }
+});
+
+$(applicableDedcution).on('input', () => {
+    let applicableDedcutionValue = document.getElementById("applicable-deductions").value;
+    if (/[^\d]/.test(applicableDedcutionValue)) {
+        document.getElementById('input-warning-applicable-deductions').classList = 'warning-tooltip mx-2'
+    } else {
+        document.getElementById('input-warning-applicable-deductions').classList = 'warning-tooltip mx-2 visually-hidden'
+    }
+});
+
+$('')
+
+
 
 // This function is calle when the user clicks on the 'Calculate' button. This function calculate the tax based on the age group and gross annual income.
 const calculateTax = () => {
