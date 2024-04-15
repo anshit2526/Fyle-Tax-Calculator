@@ -49,6 +49,10 @@
   max-width: 6.8rem !important;
 }
 
+.dropdown-toggle {
+  border: none !important;
+}
+
 input {
   outline: none;
   border: none;

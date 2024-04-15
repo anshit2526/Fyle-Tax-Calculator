@@ -29,10 +29,8 @@ $(grossAnnualIncome).on('input', () => {
     let grossAnnualIncomeValue = document.getElementById("gross-annual-income").value;
     if (/[^\d]/.test(grossAnnualIncomeValue)) {
         document.getElementById("input-warning-gross-income").classList = 'warning-tooltip mx-2'
-        console.log('afdsfadsfafadsfas')
     } else {
         document.getElementById("input-warning-gross-income").classList = 'warning-tooltip mx-2 visually-hidden'
-        console.log('a')
     }
 });
 
@@ -54,7 +52,7 @@ $(applicableDedcution).on('input', () => {
     }
 });
 
-$('')
+
 
 
 
@@ -67,41 +65,45 @@ const calculateTax = () => {
     let ageGroupValue = document.getElementById("age-group").value;
     let applicableDedcutionValue = document.getElementById("applicable-deductions").value;
 
-    // converting all the values to floating point numbers as input fields treat every input as string. This is done by array destructuring.
-    [
-        grossAnnualIncomeValue,
-        extraIncomeValue,
-        applicableDedcutionValue
-    ] = [
-            parseFloat(grossAnnualIncomeValue),
-            parseFloat(extraIncomeValue),
-            parseFloat(applicableDedcutionValue)
-        ];
+    if (ageGroupValue) {
+        document.getElementById('input-warning-age-group').classList = 'warning-tooltip mx-2 visually-hidden';
 
-    // calculating the income after the deductions
-    let incomeAfterDeduction = (grossAnnualIncomeValue + extraIncomeValue) - applicableDedcutionValue;
+        // converting all the values to floating point numbers as input fields treat every input as string. This is done by array destructuring.
+        [
+            grossAnnualIncomeValue,
+            extraIncomeValue,
+            applicableDedcutionValue
+        ] = [
+                parseFloat(grossAnnualIncomeValue),
+                parseFloat(extraIncomeValue),
+                parseFloat(applicableDedcutionValue)
+            ];
 
-    if (incomeAfterDeduction <= 800000) {
-        console.log("No taxes will be charged");
-        overallIncome.innerText = incomeAfterDeduction;
-        overallIncomeText.innerText = 'No taxes will be charged';
+        // calculating the income after the deductions
+        let incomeAfterDeduction = (grossAnnualIncomeValue + extraIncomeValue) - applicableDedcutionValue;
+
+        if (incomeAfterDeduction <= 800000) {
+            overallIncome.innerText = incomeAfterDeduction;
+            overallIncomeText.innerText = 'No taxes will be charged';
+        } else {
+            if (ageGroupValue === '<40') {
+                overallIncome.innerText = grossAnnualIncomeValue - (grossAnnualIncomeValue * 0.3);
+                overallIncomeText.innerText = 'after 30% of tax deduction';
+            }
+            else if (ageGroupValue === '≥40 & <60') {
+                overallIncome.innerText = grossAnnualIncomeValue - (grossAnnualIncomeValue * 0.4);
+                overallIncomeText.innerText = 'after 40% of tax deduction';
+            }
+            else if (ageGroupValue === '≥60') {
+                overallIncome.innerText = grossAnnualIncomeValue - (grossAnnualIncomeValue * 0.1);
+                overallIncomeText.innerText = 'after 10% of tax deduction';
+            }
+
+        }
+
     } else {
-        console.log('i am inside else')
-        if (ageGroupValue === '<40') {
-            overallIncome.innerText = grossAnnualIncomeValue - (grossAnnualIncomeValue * 0.3);
-            overallIncomeText.innerText = 'after 30% of tax deduction';
-        }
-        else if (ageGroupValue === '≥40 & <60') {
-            overallIncome.innerText = grossAnnualIncomeValue - (grossAnnualIncomeValue * 0.4);
-            overallIncomeText.innerText = 'after 40% of tax deduction';
-        }
-        else if (ageGroupValue === '≥60') {
-            overallIncome.innerText = grossAnnualIncomeValue - (grossAnnualIncomeValue * 0.1);
-            overallIncomeText.innerText = 'after 10% of tax deduction';
-        }
-
+        document.getElementById('input-warning-age-group').classList = 'warning-tooltip mx-2';
     }
-
 }
 
 

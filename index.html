@@ -72,15 +72,22 @@ Things that are yet to be done:
         </label>
 
         <div class="input-group mb-3">
-            <input id="age-group" type="text" class="form-control" aria-label="Text input with dropdown button"
-                data-bs-toggle="dropdown" placeholder="Enter your age group">
-            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false"></button>
-            <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="#" id="age-40">&lt;40</a></li>
-                <li><a class="dropdown-item" href="#" id="age-40-60"> &geq;40 & &lt;60</a></li>
-                <li><a class="dropdown-item" href="#" id="age-60">&geq;60</a></li>
-            </ul>
+            <div class="d-flex align-items-center justify-content-between form-control input-container">
+
+                <input id="age-group" type="text" class="" aria-label="Text input with dropdown button"
+                    data-bs-toggle="dropdown" placeholder="Enter your age group">
+                <button id="input-warning-age-group" type="button" class="warning-tooltip mx-2 visually-hidden"
+                    data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="This field is mandatory">
+                    !
+                </button>
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"></button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#" id="age-40">&lt;40</a></li>
+                    <li><a class="dropdown-item" href="#" id="age-40-60"> &geq;40 & &lt;60</a></li>
+                    <li><a class="dropdown-item" href="#" id="age-60">&geq;60</a></li>
+                </ul>
+            </div>
         </div>
 
 
@@ -121,11 +128,7 @@ Things that are yet to be done:
                 </div>
             </div>
         </div>
-
     </div>
-
-
-
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
